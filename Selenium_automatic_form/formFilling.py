@@ -7,10 +7,8 @@ def fill_form():
     try:
         driver = webdriver.Chrome()
 
-        # Open the Google Form
         driver.get("https://forms.gle/WT68aV5UnPajeoSc8")
 
-        # Wait for the page to load (optional)
         time.sleep(2)
 
         # Find the input element using aria-labelledby
@@ -41,14 +39,11 @@ def fill_form():
 
         driver.save_screenshot("filled_form.png")
 
-        # Submit the form
         submit_button = driver.find_element(By.XPATH, "//div[@role='button' and @aria-label='Submit']")
         submit_button.click()
 
-        # Wait for the confirmation page to load
         time.sleep(3)
 
-        # Take a screenshot of the confirmation page
         driver.save_screenshot("confirmation_page.png")
 
     except Exception as e:
